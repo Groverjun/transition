@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				text-align: center;
+				height: 500px;
+				overflow: hidden;
+				position: relative;
+				margin-top: 100px;
+			}
+			.img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				opacity: 1;
+   				background-position: center center;
+   				transition: all 3s;
+			}
+			.img1{
+				background-image: url(serv-it3.jpg);
+			}
+			.img2{
+				background-image: url(serv-silno.jpg);
+			}
+			.img3{
+				background-image: url(serv-slabo2.jpg);
+			}
+			ul{
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+				bottom: 0;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				height: 200px;
+				width: 200px;
+				text-align: center;
+				line-height: 200px;
+				font-size: 50px;
+				font-weight: bold;
+				margin: 0;
+				padding: 0;
+				background: rgba(0,0,0,0.5);
+				border: 1px solid #ccc;
+				margin: 0 100px;
+				color: #fff;
+				transition: all 3s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="img img1"></div>
+			<div class="img img2"></div>
+			<div class="img img3"></div>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("ul li").hover(function(){
+				var index =$(this).index();
+				$(this).css({
+					transform:'translateY(-50px)'
+				}).siblings('li').css({
+					transform:'translateY( 0px)'
+				})
+				$(".img").eq(index).css({
+					transform:'scale(1.5)',
+					opacity:'1'
+				}).siblings('.img').css({
+					transform:'scale(1)',
+					opacity:'0'
+				})
+
+			})
+		</script>
+	</body>
+</html>
